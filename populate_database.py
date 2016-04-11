@@ -13,6 +13,7 @@ def execute(db , command):
         cur = db.cursor()
         cur.execute(command)
         db.commit()
+        print command + ';'
         return True
     except Exception as e:
         db.rollback()
@@ -44,7 +45,7 @@ if __name__ == '__main__':
     def create_fake_user():
         fake = Factory.create()
         name = fake.name().split()
-        while name[0] == 'Mr.' or name[0] == 'Mrs.' or name[0] == 'Dr.':
+        while name[0] == 'Mr.' or name[0] == 'Mrs.' or name[0] == 'Dr.' or name[0] == 'Miss' or name[0] == 'Ms.':
             name = fake.name().split()
         firstname = name[0]
         lastname = name[1]
@@ -63,9 +64,6 @@ if __name__ == '__main__':
                 pass
             else:
                 created += 1
-                if (float(created) / count) * 100 % 10 <= 1: 
-                    call(['clear'])
-                    print "%d of %d users created" % (created, count)
         db.close()
 
     ACTIONS = {'users': populate_users_table}

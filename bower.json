@@ -1,0 +1,21 @@
+{
+  "name": "comp3161-project",
+  "homepage": "https://github.com/J-lambie/comp3161-project",
+  "authors": [
+    "n"
+  ],
+  "description": "A meal planning application",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
