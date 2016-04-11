@@ -15,7 +15,8 @@ def execute(db , command):
         return True
     except Exception as e:
         db.rollback()
-        print e.strerror()
+        if __name__ != '__main__':
+            print str(e)
         return False
 
 if __name__ == '__main__':
@@ -54,12 +55,13 @@ if __name__ == '__main__':
 
     def populate_users_table(count):
         created = 0
-        for user in range(0, count):
+        while created != count:
             if not create_fake_user():
-                break
+                pass
             else:
                 created += 1
-        print "%d of %d users created" % (created, count)
+            if created % 1000 == 0 or count % created == 0:
+                print "%d of %d users created" % (created, count)
         db.close()
 
     ACTIONS = {'users': populate_users_table}
