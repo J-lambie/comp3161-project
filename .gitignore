@@ -1,5 +1,2 @@
 # Virtualenv
-.Python
-bin
-lib
-include
+venv/
