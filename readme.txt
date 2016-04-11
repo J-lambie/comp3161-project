@@ -25,3 +25,10 @@ Step 4
 Run the system:
 -Run the command :
         python run.py
+
+DATABASE CONCERNS
+-----------------
+assumes root user with no password and database called meal_plan
+
+You may need to install libmysqlclient-dev
+-Run sudo apt-get install libmysqlclient-dev
