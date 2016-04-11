@@ -6,25 +6,25 @@
 {%block content%}
   <form method="POST"> 
     <div class="form-group">
-      <input type ="email" class="form-control" placeholder="Email"/>
+      {{form.email(class="form-control" , placeholder="Email")}}
     </div>
 
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="Password"/>
+      {{form.password(class="form-control" , placeholder="Password")}}
     </div>
 
     <div class="row">
       <div class="col-xs-6">
-        <input type="text"  class="form-control" placeholder="Firstname"/>
+        {{form.firstname(class="form-control" , placeholder="Firstname")}}
       </div>
       <div class="col-xs-6">
-        <input type="text"  class="form-control" placeholder="Lastname"/>
+        {{form.lastname(class="form-control" , placeholder="Lastname")}}
       </div>
     </div>
 
     <label for="yearpicker">Year of Birth: </label>
-    <select name="yearpicker" id="yearpicker" class="dropdown-toggle btn btn-default"></select>
-    <br/>
+    {{form.year_of_birth(class="btn btn-default dropdown-toggle")}}
+    </br>
     <button class="btn btn-primary" type="submit">Sign Up</button>
   </form>
 {% endblock %}

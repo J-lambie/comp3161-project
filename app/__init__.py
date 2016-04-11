@@ -1,7 +1,12 @@
 from flask import Flask
-from flask.ext.mysqldb import MySQL
+import MySQLdb
+
+HOST = 'localhost'
+USER = 'root'
+PASSWORD = ''
+DATABASE = 'meal_plan'
 
 app = Flask(__name__)
-mysql = MySQL()
+mysql = MySQLdb.connect(HOST, USER, PASSWORD ,DATABASE)
 
 import views
