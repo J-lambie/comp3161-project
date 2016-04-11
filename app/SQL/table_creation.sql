@@ -5,17 +5,17 @@ use COMP3161_PROJECT;
 /*====CREATING TABLES=======*/
 /*Strong Entities*/
 create table User(
-    email varchar(50),
-    password varchar(256),
-    first_name varchar(20),
-    last_name varchar(20),
-    DOB date,
+    email varchar(320) not null,
+    password varchar(256) not null,
+    firstname varchar(20) not null,
+    lastname varchar(20) not null,
+    year_of_birth year,
     primary key(email)
 );
 create table Recipe(
     recipe_id int auto_increment not null,
-    recipe_name varchar(50),
-    calories int,
+    recipe_name varchar(50) not null,
+    calories int not null,
     primary key (recipe_id)
 );
 create table Meal(
