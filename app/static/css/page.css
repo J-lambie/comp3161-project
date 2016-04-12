@@ -2,3 +2,6 @@ body
 {
     background-image:url('../img/background.png')
 }
+div{
+    background-color:white;
+}
