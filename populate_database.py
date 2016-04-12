@@ -1,3 +1,4 @@
+from subprocess import call
 from sys import argv, exit
 import MySQLdb
 from faker import Factory
@@ -12,6 +13,7 @@ def execute(db , command):
         cur = db.cursor()
         cur.execute(command)
         db.commit()
+        print command + ';'
         return True
     except Exception as e:
         db.rollback()
@@ -43,6 +45,8 @@ if __name__ == '__main__':
     def create_fake_user():
         fake = Factory.create()
         name = fake.name().split()
+        while name[0] == 'Mr.' or name[0] == 'Mrs.' or name[0] == 'Dr.' or name[0] == 'Miss' or name[0] == 'Ms.':
+            name = fake.name().split()
         firstname = name[0]
         lastname = name[1]
         email = "%s%s" % (randomword(10), FAKE_EMAIL)
@@ -60,8 +64,6 @@ if __name__ == '__main__':
                 pass
             else:
                 created += 1
-            if created % 1000 == 0 or count % created == 0:
-                print "%d of %d users created" % (created, count)
         db.close()
 
     ACTIONS = {'users': populate_users_table}

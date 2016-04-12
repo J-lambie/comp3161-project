@@ -1,100 +1,101 @@
 /*===CREATING DATABASE====*/
-create database COMP3161_PROJECT;
-use COMP3161_PROJECT;
+drop database if exists meal_plan;
+create database meal_plan;
+use meal_plan;
 
 /*====CREATING TABLES=======*/
 /*Strong Entities*/
-create table User(
-    email varchar(50),
-    password varchar(256),
-    first_name varchar(20),
-    last_name varchar(20),
-    DOB date,
+create table users(
+    email varchar(320) not null,
+    password varchar(256) not null,
+    firstname varchar(20) not null,
+    lastname varchar(20) not null,
+    year_of_birth year,
     primary key(email)
 );
-create table Recipe(
+
+create table recipes(
     recipe_id int auto_increment not null,
-    recipe_name varchar(50),
-    calories int,
-    primary key (recipe_id)
+    email varchar(320) not null,
+    recipe_name varchar(50) not null,
+    calories int not null,
+    image_url varchar(320),
+    primary key (recipe_id),
+    foreign key (email) references users(email) on delete cascade on update cascade
 );
-create table Meal(
-    meal_id int auto_increment not null,
-    servings int,
-    day date,
-    primary key (meal_id)
-);
-create table Meal_Type(
+
+create table meal_types(
     meal_type_name varchar(20),
     primary key (meal_type_name)
 );
-create table Meal_Plan(
+
+create table meal_plans(
     meal_plan_id int auto_increment not null,
     start_date date,
     end_date date,
     primary key (meal_plan_id)
 );
-create table Ingredients(
+
+create table meals(
+    meal_id int auto_increment not null,
+    email varchar(320),
+    servings int,
+    day date,
+    meal_type_name varchar(20) not null,
+    meal_plan_id int not null,
+    primary key (meal_id),
+    foreign key(email) references users(email) on delete cascade on update cascade,
+    foreign key(meal_type_name) references meal_types(meal_type_name) on update cascade,
+    foreign key(meal_plan_id) references meal_plans(meal_plan_id) on delete cascade on update cascade
+);
+
+create table ingredients(
     ingredients_id int auto_increment not null,
     product_name varchar(20),
+    email varchar(320),
     calories_per_unit int,
     stock int,
     cost decimal(8,2),
-    primary key (ingredients_id)
+    primary key (ingredients_id),
+    foreign key (email) references users(email) on delete cascade on update cascade
 );
-create table Unit(
+
+create table units(
     unit_name varchar(20),
     primary key (unit_name)
 );
-create table Instructions(
+
+create table instructions(
     recipe_id int,
     order_of_action int,
     action varchar(200),
-    primary key (recipe_id,action)
+    primary key (recipe_id,order_of_action),
+    foreign key (recipe_id) references recipes(recipe_id) on delete cascade on update cascade
 );
 
 /*Relationship Entities*/
-create table Used_In_Meals(
+create table used_in_meals(
     recipe_id int,
     meal_id int,
     primary key (recipe_id,meal_id),
-    foreign key (meal_id) references Meal(meal_id) on delete cascade on update cascade,
-    foreign key (recipe_id) references Recipe (recipe_id) on delete cascade on update cascade   
+    foreign key (meal_id) references meals(meal_id) on delete cascade on update cascade,
+    foreign key (recipe_id) references recipes (recipe_id) on delete cascade on update cascade   
 );
-create table Has_Meal_Type(
-    meal_id int,
-    meal_type_name varchar(20),
-    primary key (meal_id,meal_type_name),
-    foreign key (meal_id) references Meal(meal_id) on delete cascade on update cascade,
-    foreign key (meal_type_name) references Meal_Type
-);
-create table Contains_Meal_Plan(
-    meal_id int,
-    meal_plan_id int,
-    primary key (meal_id,meal_plan_id),
-    foreign key (meal_id) references Meal?(meal_id) on delete cascade on update cascade
-    foreign key (meal_plan_id) references Meal_Plan (meal_plan_id) on delete cascade on update cascade
-);
-create table Uses_Ingredients(
+
+create table uses_ingredients(
     recipe_id int,
     ingredients_id int,
     units varchar(20),
     calories int,
     primary key (recipe_id,ingredients_id),
-    foreign key (recipe_id) references Recipe(recipe_id) on delete cascade on update cascade,
-    foreign key (ingredients_id) references Ingredients (ingredients_id) on delete cascade in updae cascade
+    foreign key (recipe_id) references recipes(recipe_id) on delete cascade on update cascade,
+    foreign key (ingredients_id) references ingredients (ingredients_id) on delete cascade on update cascade
 );
-create table Owns_ingredients(
-    email varchar (50),
-    ingredients_id int,
-    primary key (email,ingredients_id),
-    foreign key (email) references User (email) on delete cascade on update cascade,
-    foreign key (ingredients_id) references Ingredients (ingredients_id) on delete cascade on update cascade
-);
-create table Has_Unit(
+
+create table measured_in_unit(
     ingredients_id int,
     unit_name varchar(20),
     primary key (ingredients_id,unit_name),
-    foreign key (unit_name) references Unit (unit_name) on delete cascade on update cascade,
-    foreign key (ingredients_id) references Ingredients (ingredients_id) on delete cascade on update cascade
+    foreign key (unit_name) references units (unit_name) on delete cascade on update cascade,
+    foreign key (ingredients_id) references ingredients (ingredients_id) on delete cascade on update cascade
 );
