@@ -1,9 +1,10 @@
 {% extends 'base.html'%}
 
 {%block content%}
+<div class="page-header"><h1>Login</h1></div>
   <form class="form form-inline" method="POST">
-    {{form.email(placeholder="Email", class="form-control")}}
-    {{form.password(placeholder="Password", class="form-control")}}
+    {{form.email(placeholder="Email", class="form-control")}} <br><br>
+    {{form.password(placeholder="Password", class="form-control")}}<br><br>
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 {% endblock %}

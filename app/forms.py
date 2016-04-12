@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import TextField, SelectField, PasswordField
+from wtforms import TextField, SelectField, PasswordField,FieldList,FormField
 
 class SignUpForm(Form):
     email = TextField('email')
@@ -15,3 +15,14 @@ class LoginForm(Form):
     email = TextField('email')
     password = PasswordField('password')
     
+class InstructionForm(Form):
+    instruction1=TextField('instruction1')
+    instruction2=TextField('instruction2')
+    instruction3=TextField('instruction3')
+    instruction4=TextField('instruction4')
+    
+class RecipeForm(Form):
+    recipe_name=TextField('recipe_name')
+    image_url=TextField('image_url')
+    calories=TextField('calories')
+    instructions=FieldList(FormField(InstructionForm))
