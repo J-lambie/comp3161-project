@@ -62,16 +62,16 @@ def login():
     else:
         return render_template('login.html', form=form)
 
-@app.route('/add_ingredient')
-@login_required
-def add_ingredient():
-    return current_user.email
-
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     return 'Logged Out'
+
+@app.route('/add_ingredient')
+@login_required
+def add_ingredient():
+    return render_template('add_ingredient.html')
 
 @login_manager.user_loader
 def load_user(email):
