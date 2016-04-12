@@ -12,7 +12,7 @@ def home():
 def signup():
     form = SignUpForm(csrf_enabled=False)
     choices = [(str(x),x) for x in reversed(range(1900,2004))]
-    year_of_birth.choices = choices
+    form.year_of_birth.choices = choices
     if request.method == 'POST': 
         if form.validate_on_submit():
             email = form.email.data
