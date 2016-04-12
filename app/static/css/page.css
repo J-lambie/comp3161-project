@@ -1,11 +1,12 @@
 body
 {    
-    background-image:url('../img/background.png')
+ 
+    background-color:#c6d8ec;
 }
 div{
     margin-top: 10px;
     padding-top: 5px ;
-    background-color:white;
+    background-color:#fff8e6;
     border-radius: 25px;
 }
 div div{
