@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+
+{%block content%}
+  <form class="form form-inline" method="POST">
+    {{form.email(placeholder="Email", class="form-control")}}
+    {{form.password(placeholder="Password", class="form-control")}}
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+{% endblock %}

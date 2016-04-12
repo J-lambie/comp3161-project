@@ -10,4 +10,8 @@ class SignUpForm(Form):
 
     choices = [(str(x),x) for x in range(1900,2003)]
     year_of_birth.choices = choices
+
+class LoginForm(Form):
+    email = TextField('email')
+    password = PasswordField('password')
     
