@@ -1,8 +1,8 @@
 from app import app, mysql, login_manager
-from flask import Flask, abort, request, jsonify, g, url_for, render_template, redirect
+from flask import Flask, abort, request, jsonify, g, url_for, render_template, redirect, flash
 from .forms import SignUpForm, LoginForm
 from .models import User
-from flask.ext.login import login_user, current_user
+from flask.ext.login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
 def home():
@@ -26,8 +26,10 @@ def signup():
                 mysql.commit()
                 return email
             except Exception as e:
-                return str(e)
+                flash(str(e))
+                render_template('signup.html', form=form)
         else:
+            flash('Error signing up')
             render_template('signup.html' , form=form)
     else:
         return render_template('signup.html', form=form)
@@ -44,18 +46,29 @@ def login():
                 cursor.execute('''select * from users where email="%s" and password="%s"''' % (email , password))
                 result = cursor.fetchall()
                 if not result:
-                    return 'Invalid login credentials'
+                     flash('Invalid login credentials')
+                     return render_template('login.html', form=form)
                 else:
                     user = User(result[0][0], result[0][1], result[0][2], result[0][3], result[0][4])
                     login_user(user)
-                    print current_user.email
-                    return 'Hello'
+                    return 'LoggedIn'
             except Exception as e:
                 return str(e)
         else:
-            render_template('login.html' , form=form)
+           return render_template('login.html' , form=form)
     else:
         return render_template('login.html', form=form)
+
+@app.route('/add_ingredient')
+@login_required
+def add_ingredient():
+    return current_user.email
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return 'Logged Out'
 
 @login_manager.user_loader
 def load_user(email):
