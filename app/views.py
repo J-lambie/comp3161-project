@@ -68,7 +68,7 @@ def logout():
     logout_user()
     return 'Logged Out'
 
-@app.route('/add_ingredient')
+@app.route('/add_ingredient', methods=['GET' , 'POST'])
 @login_required
 def add_ingredient():
     form = IngredientForm(csrf_enabled=False)
@@ -77,8 +77,26 @@ def add_ingredient():
     units = cursor.fetchall()
     choices = [(unit[0], unit[0].capitalize()) for unit in units]
     form.unit_name.choices = choices
-
-    return render_template('add_ingredient.html', form=form)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            product_name = form.product_name.data
+            calories_per_unit = form.calories_per_unit.data
+            stock = form.stock.data
+            cost = form.cost.data
+            unit_name = form.unit_name.data
+            email = current_user.email
+            try:
+                cursor.execute('''insert into ingredients (product_name, unit_name, email, calories_per_unit, stock, cost) values ("%s", "%s", "%s", %d, %d, %0.2f)''' % (product_name, unit_name, email, calories_per_unit, stock, cost))
+                mysql.commit()
+                return 'Added'
+            except Exception as e:
+                flash(str(e))
+                return render_template('add_ingredient.html', form=form)
+        else:
+            flash('Error adding ingredient')
+            return render_template('add_ingredient.html', form=form)
+    else:
+        return render_template('add_ingredient.html', form=form)
 
 @login_manager.user_loader
 def load_user(email):

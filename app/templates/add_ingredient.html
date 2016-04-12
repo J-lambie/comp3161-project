@@ -3,6 +3,10 @@
 {% block content %}
   <form method="POST">
     {{form.product_name(placeholder="Product Name", class="form-control")}}
-    {{form.unit_name(placeholder="Product Name", class="btn btn-default dropdown-toggle")}}
+    {{form.calories_per_unit(placeholder="Calories Per Unit", class="form-control")}}
+    {{form.stock(placeholder="Stock", class="form-control")}}
+    {{form.cost(placeholder="Cost", class="form-control")}}
+    {{form.unit_name(class="btn btn-default dropdown-toggle")}}
+    <button type="submit" class="btn btn-primary">Add Ingredient</button>
   </form>
 {% endblock %}
