@@ -2,5 +2,7 @@
 
 {% block content %}
   <form method="POST">
+    {{form.product_name(placeholder="Product Name", class="form-control")}}
+    {{form.unit_name(placeholder="Product Name", class="btn btn-default dropdown-toggle")}}
   </form>
 {% endblock %}

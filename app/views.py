@@ -1,6 +1,6 @@
 from app import app, mysql, login_manager
 from flask import Flask, abort, request, jsonify, g, url_for, render_template, redirect, flash
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm, IngredientForm
 from .models import User
 from flask.ext.login import login_user, current_user, logout_user, login_required
 
@@ -71,7 +71,14 @@ def logout():
 @app.route('/add_ingredient')
 @login_required
 def add_ingredient():
-    return render_template('add_ingredient.html')
+    form = IngredientForm(csrf_enabled=False)
+    cursor = mysql.cursor()
+    cursor.execute('''select unit_name from units''')
+    units = cursor.fetchall()
+    choices = [(unit[0], unit[0].capitalize()) for unit in units]
+    form.unit_name.choices = choices
+
+    return render_template('add_ingredient.html', form=form)
 
 @login_manager.user_loader
 def load_user(email):
