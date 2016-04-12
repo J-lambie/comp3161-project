@@ -19,6 +19,16 @@ Dowload the required libraries and frameworks
 Step3
 -------
 Start the server:
+For C9:
+        mysql-clt start
+        mysql-ctl cli
+        
+        In the mysql client run the folowing:
+        source app/SQL/table_creation.sql;
+        create user root;
+        grant all privileges on meal_plan to root;
+        
+        
 
 Step 4
 -------
