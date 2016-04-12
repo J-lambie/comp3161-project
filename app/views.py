@@ -98,6 +98,17 @@ def add_ingredient():
     else:
         return render_template('add_ingredient.html', form=form)
 
+@app.route('/kitchen')
+@login_required
+def kitchen():
+    cursor = mysql.cursor()
+    cursor.execute('''select product_name, calories_per_unit, stock from ingredients where email="%s"''' % (current_user.email))
+    result = cursor.fetchall()
+    ingredients = []
+    if result:
+        ingredients = [{'product_name': ingredient[0], 'calories': ingredient[1], 'stock': ingredient[2]} for ingredient in result]
+    return render_template('kitchen.html', ingredients=ingredients)
+
 @login_manager.user_loader
 def load_user(email):
     try:
