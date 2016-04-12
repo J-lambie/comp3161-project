@@ -49,21 +49,24 @@ create table meals(
     foreign key(meal_plan_id) references meal_plans(meal_plan_id) on delete cascade on update cascade
 );
 
+create table units(
+    unit_name varchar(20),
+    primary key (unit_name)
+);
+
 create table ingredients(
     ingredients_id int auto_increment not null,
     product_name varchar(20),
+    unit_name varchar(20),
     email varchar(320),
     calories_per_unit int,
     stock int,
     cost decimal(8,2),
     primary key (ingredients_id),
-    foreign key (email) references users(email) on delete cascade on update cascade
+    foreign key (email) references users(email) on delete cascade on update cascade,
+    foreign key (unit_name) references units(unit_name) on delete cascade on update cascade
 );
 
-create table units(
-    unit_name varchar(20),
-    primary key (unit_name)
-);
 
 create table instructions(
     recipe_id int,
@@ -89,13 +92,5 @@ create table uses_ingredients(
     calories int,
     primary key (recipe_id,ingredients_id),
     foreign key (recipe_id) references recipes(recipe_id) on delete cascade on update cascade,
-    foreign key (ingredients_id) references ingredients (ingredients_id) on delete cascade on update cascade
-);
-
-create table measured_in_unit(
-    ingredients_id int,
-    unit_name varchar(20),
-    primary key (ingredients_id,unit_name),
-    foreign key (unit_name) references units (unit_name) on delete cascade on update cascade,
     foreign key (ingredients_id) references ingredients (ingredients_id) on delete cascade on update cascade
 );
