@@ -24,10 +24,12 @@ def signup():
                 cur = mysql.cursor()
                 cur.execute('''insert into users values ('%s', '%s', '%s','%s', %d)''' % (email , password,firstname, lastname, int(year_of_birth)))
                 mysql.commit()
-                return email
+                user = User(email, password, firstname, lastname, year_of_birth)
+                login_user(user)
+                return redirect(url_for('add_ingredient'))
             except Exception as e:
                 flash(str(e))
-                render_template('signup.html', form=form)
+                return render_template('signup.html', form=form)
         else:
             flash('Error signing up')
             render_template('signup.html' , form=form)
