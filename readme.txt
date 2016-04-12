@@ -31,4 +31,5 @@ DATABASE CONCERNS
 assumes root user with no password and database called meal_plan
 
 You may need to install libmysqlclient-dev
--Run sudo apt-get install libmysqlclient-dev
+-Run command:
+        sudo apt-get install libmysqlclient-dev
