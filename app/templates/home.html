@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron">
+    <h1>MEAL PLANNER</h1>
+    <br>
+    <p><small>Save recipes, Plan meals, Track your kitchen and more <br> For all of your everyday needs.</p></small><br>
+     <br><br>
+     <a href="{{url_for('login')}}" class="btn btn-primary">Login</a>
+     <a href="{{url_for('signup')}}"class="btn btn-primary">Sign Up</a>
+     
+</div>
+
+{% endblock %}
