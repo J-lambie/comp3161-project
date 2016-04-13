@@ -1,3 +1,4 @@
+import os
 from app import app, mysql, login_manager
 from flask import Flask, abort, request, jsonify, g, url_for, render_template, redirect, flash
 from .forms import SignUpForm, LoginForm, IngredientForm, RecipeForm
@@ -109,16 +110,45 @@ def kitchen():
         ingredients = [{'product_name': ingredient[0], 'calories': ingredient[1], 'stock': ingredient[2]} for ingredient in result]
     return render_template('kitchen.html', ingredients=ingredients)
 
-@app.route('/add_recipe')
+@app.route('/add_recipe', methods=['GET' , 'POST'])
 @login_required
 def add_recipie():
     form = RecipeForm()
-    cursor = mysql.cursor()
-    cursor.execute('''select ingredients_id, product_name from ingredients where email="%s"''' % (current_user.email))
-    results = cursor.fetchall()
-    choices = [(ingredient[0], ingredient[1].capitalize()) for ingredient in results]
-    form.ingredients.choices = choices
-    return render_template('add_recipe.html', form=form)   
+    if request.method == 'GET':
+        cursor = mysql.cursor()
+        cursor.execute('''select ingredients_id, product_name from ingredients where email="%s"''' % (current_user.email))
+        results = cursor.fetchall()
+        choices = [(ingredient[0], ingredient[1].capitalize()) for ingredient in results]
+        form.ingredients.choices = choices
+        return render_template('add_recipe.html', form=form)   
+    else:
+        cursor = mysql.cursor()
+        recipe_name = form.recipe_name.data
+        calories = form.calories.data
+        image = form.image.data
+        filename = image.filename
+        image.save(os.path.join('app/static/images', filename))
+        url = 'app/static/images/%s' % (filename)
+        steps = form.instructions.data
+        instruction1 = steps[0]['instruction1']
+        instruction2 = steps[0]['instruction2']
+        instruction3 = steps[0]['instruction3']
+        instruction4 = steps[0]['instruction4']
+
+        cursor.execute('''insert into recipes (email, recipe_name, calories, image_url) values ("%s", "%s", %d, "%s")''' % (current_user.email, recipe_name, calories, url))
+        cursor.execute('''insert into instructions (recipe_id, order_of_action, action) values (LAST_INSERT_ID(), 1, "%s")''' % instruction1)
+        cursor.execute('''insert into instructions (recipe_id, order_of_action, action) values (LAST_INSERT_ID(), 2, "%s")''' % instruction2)
+        cursor.execute('''insert into instructions (recipe_id, order_of_action, action) values (LAST_INSERT_ID(), 3, "%s")''' % instruction3)
+        cursor.execute('''insert into instructions (recipe_id, order_of_action, action) values (LAST_INSERT_ID(), 4, "%s")''' % instruction4)
+        mysql.commit()
+        
+        return 'works'
+
+
+@app.route('/add_recipe' , methods=['POST'])
+@login_required
+def set_units():
+    return 'Hello'
 
 
 @login_manager.user_loader
@@ -134,7 +164,3 @@ def load_user(email):
     except Exception as e:
         print str(e)
         return None
-        
-@app.route('/add_recipe')
-def add_recipe():
-    return render_template("add_recipe.html")

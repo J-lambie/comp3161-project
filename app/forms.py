@@ -1,6 +1,8 @@
 from flask.ext.wtf import Form
 from wtforms import TextField, SelectField, PasswordField, IntegerField, FloatField, FieldList, FormField, SelectMultipleField
 
+from flask_wtf.file import FileField
+
 class SignUpForm(Form):
     email = TextField('email')
     firstname = TextField('firstname')
@@ -34,3 +36,4 @@ class RecipeForm(Form):
     calories = IntegerField('calories')
     instructions = FieldList(FormField(InstructionForm), min_entries=1)
     ingredients = SelectMultipleField('ingredients')
+    image = FileField('Recipe Picture')

@@ -88,7 +88,7 @@ create table used_in_meals(
 create table uses_ingredients(
     recipe_id int,
     ingredients_id int,
-    units varchar(20),
+    units int,
     calories int,
     primary key (recipe_id,ingredients_id),
     foreign key (recipe_id) references recipes(recipe_id) on delete cascade on update cascade,
