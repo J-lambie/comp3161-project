@@ -8,7 +8,7 @@ class SignUpForm(Form):
     password = PasswordField('password')
     year_of_birth = SelectField('year_of_birth')
 
-    choices = [(str(x),x) for x in range(1900,2003)]
+    choices = [(str(x),x) for x in range(1950,2016)]
     year_of_birth.choices = choices
 
 class LoginForm(Form):

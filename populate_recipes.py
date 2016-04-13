@@ -25,7 +25,7 @@ def insert_recipe(db, recipe):
 	fil = open('recipes.sql', 'a')
 	command = "insert into recipes (NULL, '%s', '%s', '%d', '%s')" % (recipe['email'], recipe['recipe_name'], recipe['calories'], recipe['image_url'])
 	print command
-	fil.write(command)
+	fil.write(command+";\n")
 	fil.close()
 	return execute(db, command)
 
@@ -64,15 +64,17 @@ if __name__ == '__main__':
 	db = MySQLdb.connect(HOST, USER, PASSWORD, DATABASE)
 
 	def create_fake_recipe(ind, ind1):
+		
 		fake = Factory.create()
 		email = "%s%s" % (randomword(10), FAKE_EMAIL)
 		recipe_name = foods[ind] + " and " + drinks[ind1]
-		calories = randint(0,1000);
+		calories = random.randint(0,1000);
 		image_url = fake.word() + ".com/" + fake.word() + ".jpg" 
 		recipe = {'email':email, 'recipe_name':recipe_name, 'calories':calories, 'image_url':image_url}
 		return insert_recipe(db, recipe)
 
 	def populate_recipes_table(count):
+		print "hello world"
 		created = 0
 		j = 0
 		while created < count:
@@ -87,6 +89,7 @@ if __name__ == '__main__':
 	ACTIONS = {'recipes': populate_recipes_table}
 
 	try:
+
 		ACTIONS[table](count)
 	except KeyError:
 		print "No table named as %s" % (table)
