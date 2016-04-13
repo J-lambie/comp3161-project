@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
 {%block content%}
-
+  <form method="POST">
+    {{form.recipe_name(placeholder="Recipe Name", class="form-control")}}
+    {{form.calories(placeholder="Calories", class="form-control")}}
+    {% for step in form.instructions %}
+      {{step.instruction1(placeholder="Step 1", class="form-control")}}
+      {{step.instruction2(placeholder="Step 2", class="form-control")}}
+      {{step.instruction3(placeholder="Step 3", class="form-control")}}
+      {{step.instruction4(placeholder="Step 4", class="form-control")}}
+    {% endfor %}
+    {{form.ingredients(class="form-control")}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 {% endblock %}
