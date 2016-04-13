@@ -21,11 +21,12 @@ f.close()
 g.close()
 
 
-def insert_recipe(db, user):
+def insert_recipe(db, recipe):
 	fil = open('recipes.sql', 'a')
 	command = "insert into recipes (NULL, '%s', '%s', '%d', '%s')" % (recipe['email'], recipe['recipe_name'], recipe['calories'], recipe['image_url'])
-	f.write(command)
-	f.close()
+	print command
+	fil.write(command)
+	fil.close()
 	return execute(db, command)
 
 def execute(db, command):
@@ -66,7 +67,7 @@ if __name__ == '__main__':
 		fake = Factory.create()
 		email = "%s%s" % (randomword(10), FAKE_EMAIL)
 		recipe_name = foods[ind] + " and " + drinks[ind1]
-		calories = print(randint(0,1000));
+		calories = randint(0,1000);
 		image_url = fake.word() + ".com/" + fake.word() + ".jpg" 
 		recipe = {'email':email, 'recipe_name':recipe_name, 'calories':calories, 'image_url':image_url}
 		return insert_recipe(db, recipe)
@@ -83,10 +84,10 @@ if __name__ == '__main__':
 			created += 1
 		db.close()
 
-	ACTION = {'users': populate_recipes_table}
+	ACTIONS = {'recipes': populate_recipes_table}
 
 	try:
 		ACTIONS[table](count)
-	except KetError:
+	except KeyError:
 		print "No table named as %s" % (table)
 		
