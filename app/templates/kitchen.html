@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{%block content%}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Calories</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ingredient in ingredients %}
+        <tr>
+          <td>{{ingredient['product_name']}}</td>
+          <td>{{ingredient['calories']}}</td>
+          <td>{{ingredient['stock']}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
