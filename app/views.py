@@ -86,4 +86,7 @@ def load_user(email):
     except Exception as e:
         print str(e)
         return None
-
+        
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("add_recipe.html")
