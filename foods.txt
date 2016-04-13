@@ -153,7 +153,7 @@ Carolina style
 Celery Victor
 Cheese dog
 Cheese fries
-Chicken à la King
+Chicken a la King
 Chicken and waffles
 Chicken Divan
 Chicken fingers
@@ -373,7 +373,7 @@ Pasta e fagioli
 Acquacotta
 Agliata
 Agrodolce
-Bagna càuda
+Bagna cauda
 Garmugia
 Ginestrata
 Grine sauce
@@ -383,9 +383,9 @@ Minestra di ceci
 Minestra di pasta con pesce
 Minestrone
 Pasta e fagioli
-Ragù alla bolognese
-Ragù alla salsiccia
-Ragù
+Ragu alla bolognese
+Ragu alla salsiccia
+Ragu
 Risi e bisi
 Sciusceddu
 Stracciatella
@@ -405,7 +405,7 @@ Ciriola
 Colomba Pasquale
 Coppia Ferrarese
 Crescentina
-Crocchè
+Crocche
 Farinata
 Ficattola
 Focaccia
@@ -512,7 +512,7 @@ Ziti
 Bucatini all'Amatriciana
 bucatini coi funghi
 bucatini alla Sorrentina
-Cannelloni al ragù
+Cannelloni al ragu
 cannelloni ai carciofi
 Carbonara
 Ciceri e Tria
@@ -538,7 +538,7 @@ tagliatelle ai carciofi
 tagliatelle ai funghi
 tagliatelle al pomodoro
 tagliatelle al sugo di lepre
-tagliatelle al ragù
+tagliatelle al ragu
 Tortelloni alla zucca
 Tortellini, Cjarsons
 Tortelloni ricotta and spinach
@@ -566,7 +566,7 @@ Risotto alla sbirraglia
 Risotto alla zucca
 Risotto allo zafferano con petto d'anatra
 Risotto con agoni
-Risotto con la lüganega
+Risotto con la luganega
 Risotto con scamorza e champagne
 Risotto di seppie alla veneziana
 Risotto indivia e fiori di zucca
@@ -581,9 +581,9 @@ Acquadella o latterino fritto
 Agghiotta di pesce spada
 Alici, sardine, anguilla marinate
 Anguilla marinata
-Baccalà
-Baccalà alla vicentina
-Baccalà fritto
+Baccala
+Baccala alla vicentina
+Baccala fritto
 Boreto alla graisana
 Branzino al sale
 Brodetto di arselle
@@ -599,7 +599,7 @@ Cartoccio di pesce spada
 Cozze alla tarantina
 Cozze fritte alla viareggina
 Cozze ripiene
-Filetti di baccalà
+Filetti di baccala
 Filetti di orata al cartoccio
 Fritata di bianchetti
 Fritto misto di pesce
@@ -657,7 +657,7 @@ Carne Pizzaiola
 Cevapcici
 Ciabusco
 Coda alla vaccinara
-Cotechino friulano or Musèt
+Cotechino friulano or Muset
 Cotechino Modena
 Cotoletta alla milanese
 Cotoletta alla petroniana
@@ -693,7 +693,7 @@ Carciofi alla Romana
 Crauti
 Panzanella
 Peperonata
-Pestât
+Pestat
 Pinzimonio 
 Carciofi alla Romana
 Panzanella
@@ -710,7 +710,7 @@ Caciocavallo
 Cacioricotta
 Canestrato pugliese
 Caprino
-Casècc
+Casecc
 Casiello
 Castelmagno
 Casu modde
@@ -719,7 +719,7 @@ Crescenza
 Crotonese
 Fiore Sardo
 Fontina
-Formadi frânt e Formadi salât
+Formadi frant e Formadi salat
 Formai de Mut dell'Alta Valle Brembana
 Giuncata
 Gorgonzola
@@ -761,7 +761,7 @@ Toma
 Tumazzu
 Aceto dolce
 Anisette
-Babà
+Baba
 Biscotti
 Biscuit Tortoni
 Buccellato
@@ -793,7 +793,7 @@ Profiterole
 Putizza and Pinza
 Semifreddo
 Sfogliatelle
-Tiramisù
+Tiramisu
 Torta Bertolina
 Torta caprese
 Strucchi
@@ -802,8 +802,8 @@ Struffoli
 Zabaglione
 Zuppa Inglese
 Bicerin 
-Caffè corretto
-Caffè macchiato
+Caffe corretto
+Caffe macchiato
 Caffelatte
 Cappuccino
 Espresso
@@ -811,7 +811,7 @@ Granita
 Grolla dell'amicizia 
 Marocchino
 Ristretto
-Baccalà alla Vicentina
+Baccala alla Vicentina
 Bistecca alla fiorentina
 Pollo alla cacciatora
 Salsiccia
@@ -819,19 +819,19 @@ Lasagne
 Ossobuco
 Pasta e fagioli
 Pizza
-Ragù alla bolognese
+Ragu alla bolognese
 Tortellini
 Stuffed Calamari in Tomato Sauce 
 Deep Fried Fish/Shrimp
 Linguine with Clam Sauce 
 Marinated Eel
-Baccalà
-Tiramisù
+Baccala
+Tiramisu
 Asino
 Brovada or Brovade 
 Cjarsons
 Cuguluf 
-Formadi frânt
+Formadi frant
 Frico
 Gubana
 Gulasch
@@ -846,7 +846,7 @@ Scuete fumade
 Speck friulano of Sauris
 Bigoli con l'arna 
 Galani or Crostoli
-Lesso e pearà 
+Lesso e peara 
 Pasta e fagioli
 Polenta e osei 
 Radicchio e pancetta
@@ -867,7 +867,7 @@ Torrone
 Tortelli di zucca
 Tortino de riso alla valdostana
 Zuppa di Valpelline
-Bagna càuda
+Bagna cauda
 Bollito misto
 Brasato al vino
 Carne cruda all'albese
@@ -883,7 +883,7 @@ Rane Fritte
 Riso e Rane
 Salame sotto Grasso
 Agliata
-Baccalà fritto
+Baccala fritto
 Bagnun
 Bianchetti
 Buridda
@@ -895,7 +895,7 @@ Farinata di zucca
 Galantina
 Latte dolce fritto
 Maccheroni con la Trippa
-Mescciüa
+Mescciua
 Mosciamme
 Pandolce
 Panera genovese

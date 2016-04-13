@@ -16,9 +16,9 @@ Corfu Coffee
 Kaffee Fertig
 Kaffee Kirsch
 Kaffe Karlsson
-Caffè corretto
+Caffe corretto
 Kula
-Kahlúa
+Kahlua
 Kamora
 Karsk
 svartkopp
@@ -50,7 +50,7 @@ Genmaicha
 Horchata
 Huangjiu
 Hyeonmi cha
-Jūrokucha
+Jurokucha
 Kokkoh
 Mijiu
 Rice baijiu
@@ -70,7 +70,7 @@ Brem
 Cheongju
 Chhaang
 Choujiu
-Cơm rượu
+Com ruou
 Du Kang
 Gamju
 Gekkeikan
@@ -81,9 +81,9 @@ Makgeolli
 Mirin
 Pinjopo
 Raksi
-Rượu cần
-Rượu đế
-Rượu nếp
+Ruou can
+Ruou da
+Ruou nap
 Sato
 Shoutoku
 Snake wine
@@ -164,7 +164,7 @@ Bajigur
 Bandrek
 Bicerin
 Cafe de olla
-Caffè mocha
+Caffe mocha
 Caudle
 Champurrado
 Hot buttered rum
@@ -176,7 +176,7 @@ Milo
 Mulled wine
 Ovaltine
 Posset
-Rüdesheimer Kaffee
+Rudesheimer Kaffee
 Sbiten
 Smoking Bishop
 Teh talua
@@ -189,7 +189,7 @@ Jungle juice
 Sugarcane juice
 Wheatgrass juice
 Apple juice
-Chanh muối
+Chanh muoi
 Coconut water
 Cranberry juice	
 Grape juice
@@ -222,7 +222,7 @@ Celery juice
 Cucumber juice
 Dandelion-green juice
 Parsley juice
-Şalgam
+Salgam
 Spinach juice
 Tejuino
 Tomato juice
@@ -255,7 +255,7 @@ Pink Daiquiri
 Strawberry Daiquiri
 Bananarita
 Bloody Aztec
-Chimayó Cocktail
+Chimayo Cocktail
 El Toro Loco Patron and Redbull
 Juan Collins
 Long Island Iced Tea
@@ -412,11 +412,11 @@ Buttery Nipple
 Irish Car Bomb
 Oatmeal Cookie
 Springbokkie
-Crème de menthe – green
+Creme de menthe  green
 A grasshopper
 Grasshopper
 Springbokkie
-Crème de menthe – white
+Creme de menthe  white
 Stinger
 Fruit liqueurs
 Apple-flavored
@@ -476,7 +476,7 @@ Carrot Cake
 Common Market
 Flaming Sambuca
 Grasshopper
-Jägerbomb
+Jagerbomb
 Orange Safari
 Pucker Up
 Snowball
@@ -538,12 +538,12 @@ Bandrek
 Bandung
 Barley water
 Birch sap
-Blabärssoppa
+Blabarssoppa
 Bread Drink
 Cendol
 Chalap
 Champurrado
-Champús
+Champus
 Chass
 Cholado
 Chai
@@ -660,7 +660,7 @@ Cinnamon Roll Smoothie
 SkinnyLicious Protein Smoothie
 Fresh Figs and Cashew Butter Smoothie
 Monkeylada Smoothie
-Paleo Strawberries and “Cream” Smoothie.
+Paleo Strawberries and 'Cream' Smoothie.
 Banana Blend
 Strawberry-Banana Blend
 Strawberry Shortcake Blend 
@@ -803,7 +803,7 @@ Boston cream pie
 Brazil nut cake
 Brownie
 Buccellato
-Budapestlängd
+Budapestlangd
 Bundt cake
 Butter cake
 Butterfly cake
@@ -832,7 +832,7 @@ Devil's food cake
 Dobos cake
 Dundee cake
 Eccles cake
-Esterházy torte
+Esterhazy torte
 Fat rascal
 Faworki
 Fig cake
@@ -864,11 +864,11 @@ Kolacz
 Kolaczki
 Kouign-amann
 Kransekake
-Kremówka
+Kremowka
 Krowka
 Kutia
 Lady Baltimore cake
-Lamanki orKlamäti
+Lamanki orKlamati
 Lamington
 Layer cake
 Lemon cake
@@ -900,7 +900,7 @@ Panettone
 Panpepato
 Parkin
 Pavlova
-Petit Gâteau
+Petit Gateau
 Petits fours
 Piernik
 Pineapple upside-down cake
@@ -937,7 +937,7 @@ St. Honore cake
 Stack cake
 Strawberry cake
 Streuselkuchen
-Studenterbrød
+Studenterbrod
 Sultana and cherry cake
 Suncake
 Swiss roll
@@ -948,16 +948,16 @@ Tiramisu
 Tompouce
 Torta Tre Monti
 Tres leches cake
-Træstammer
+Traestammer
 Tunis cake
 Upside-down cake
 Victoria sponge cake
-Vínarterta
+Vinarterta
 Wedding cake
 Welsh cake
 Whoopie pies
 Wine cake
-Šakotis
+Sakotis
 Anise tea
 Asiatic
 Artichoke tea
