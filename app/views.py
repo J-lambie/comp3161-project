@@ -1,6 +1,6 @@
 from app import app, mysql, login_manager
 from flask import Flask, abort, request, jsonify, g, url_for, render_template, redirect, flash
-from .forms import SignUpForm, LoginForm, IngredientForm
+from .forms import SignUpForm, LoginForm, IngredientForm, RecipeForm
 from .models import User
 from flask.ext.login import login_user, current_user, logout_user, login_required
 
@@ -108,6 +108,18 @@ def kitchen():
     if result:
         ingredients = [{'product_name': ingredient[0], 'calories': ingredient[1], 'stock': ingredient[2]} for ingredient in result]
     return render_template('kitchen.html', ingredients=ingredients)
+
+@app.route('/add_recipe')
+@login_required
+def add_recipie():
+    form = RecipeForm()
+    cursor = mysql.cursor()
+    cursor.execute('''select ingredients_id, product_name from ingredients where email="%s"''' % (current_user.email))
+    results = cursor.fetchall()
+    choices = [(ingredient[0], ingredient[1].capitalize()) for ingredient in results]
+    form.ingredients.choices = choices
+    return render_template('add_recipe.html', form=form)   
+
 
 @login_manager.user_loader
 def load_user(email):
